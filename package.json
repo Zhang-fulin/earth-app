@@ -6,7 +6,8 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "prebuild": "node scripts/generate-requires-from-json.js"
   },
   "dependencies": {
     "expo": "~53.0.10",
@@ -15,7 +16,9 @@
     "react-native": "0.79.3",
     "react-native-safe-area-context": "5.4.0",
     "react-native-webview": "13.13.5",
-    "expo-dev-client": "~5.2.0"
+    "expo-dev-client": "~5.2.0",
+    "expo-file-system": "~18.1.10",
+    "expo-asset": "~11.1.5"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
