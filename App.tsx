@@ -9,7 +9,7 @@ export default function App() {
       <StatusBar style="light" />
       <SafeAreaView style={{ flex: 1 }}>
         <WebView 
-          source={{ uri: 'https://zhang-fulin.github.io/Earth-Explore/' }} 
+          source={{ uri: 'https://webcad.online/index.html' }} 
           style={styles.webview}
           scalesPageToFit={false}
         />
