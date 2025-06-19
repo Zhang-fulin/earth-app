@@ -1,18 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { WebView } from 'react-native-webview';
+import { useState } from 'react';
 
 export default function App() {
+  const [loading, setLoading] = useState(true);
+
   return (
     <View style={styles.container}>
       <StatusBar style="light" />
       <SafeAreaView style={{ flex: 1 }}>
-        <WebView 
-          source={{ uri: 'https://zhang-fulin.github.io/Earth-Explore/' }} 
+        <WebView
+          source={{ uri: 'https://webcad.online/index.html' }}
           style={styles.webview}
-          scalesPageToFit={false}
+          onLoadStart={() => { setLoading(true); console.log('start'); }}
+          onLoadEnd={() => { console.log('end'); setTimeout(() => setLoading(false), 3000); }}
         />
+        {loading && (
+          <View style={styles.loadingOverlay}>
+            <ActivityIndicator color="#666" />
+          </View>
+        )}
       </SafeAreaView>
     </View>
   );
@@ -25,6 +34,11 @@ const styles = StyleSheet.create({
   },
   webview: {
     flex: 1,
-    backgroundColor: '#000'
+  },
+  loadingOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#000',
   },
 });
