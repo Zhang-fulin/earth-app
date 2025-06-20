@@ -16,6 +16,8 @@ export default function App() {
           style={styles.webview}
           onLoadStart={() => { setLoading(true); console.log('start'); }}
           onLoadEnd={() => { console.log('end'); setTimeout(() => setLoading(false), 3000); }}
+          overScrollMode="never"
+          bounces={false}  
         />
         {loading && (
           <View style={styles.loadingOverlay}>
